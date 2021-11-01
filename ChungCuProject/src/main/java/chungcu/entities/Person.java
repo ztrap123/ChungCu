@@ -1,12 +1,13 @@
 package chungcu.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Person {
 	private String fullName;
 	private String address;
 	private String sex;
-	private Date dob;
+	private LocalDate dob;
 	private String license;
 	private String birthplace;
 	private String nationality;
@@ -15,7 +16,7 @@ public class Person {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Person(String fullName, String address, String sex, Date dob, String license, String birthplace,
+	public Person(String fullName, String address, String sex, LocalDate dob, String license, String birthplace,
 			String nationality) {
 		this.fullName = fullName;
 		this.address = address;
@@ -50,12 +51,12 @@ public class Person {
 		this.sex = sex;
 	}
 
-	public Date getDob() {
+	public LocalDate getDob() {
 		return dob;
 	}
 
-	public void setDob(Date dob) {
-		this.dob = dob;
+	public void setDob(int d, int m, int y) {
+		this.dob = LocalDate.of(y, m, d);
 	}
 
 	public String getLicense() {
@@ -80,6 +81,18 @@ public class Person {
 
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
+	}
+
+	public String formatted() {
+		DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		String formatted = getDob().format(myFormat);
+		return formatted;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [fullName=" + fullName + ", address=" + address + ", sex=" + sex + ", dob=" + formatted()
+				+ ", license=" + license + ", birthplace=" + birthplace + ", nationality=" + nationality + "]";
 	}
 
 }

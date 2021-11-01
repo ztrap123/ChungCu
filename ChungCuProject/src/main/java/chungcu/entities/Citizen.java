@@ -1,6 +1,6 @@
 package chungcu.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Citizen extends Person {
 	private String id;
@@ -10,7 +10,7 @@ public class Citizen extends Person {
 
 	}
 
-	public Citizen(String id, boolean hoh, String fullName, String address, String sex, Date dob, String license,
+	public Citizen(String id, boolean hoh, String fullName, String address, String sex, LocalDate dob, String license,
 			String birthplace, String nationality) {
 		super(fullName, address, sex, dob, license, birthplace, nationality);
 		this.id = id;
@@ -35,9 +35,7 @@ public class Citizen extends Person {
 
 	@Override
 	public String toString() {
-		return "Citizen [id=" + id + ", hoh=" + hoh + ", getFullName()=" + getFullName() + ", getAddress()="
-				+ getAddress() + ", getSex()=" + getSex() + ", getDob()=" + getDob() + ", getLicense()=" + getLicense()
-				+ ", getBirthplace()=" + getBirthplace() + ", getNationality()=" + getNationality() + "]";
+		return "Citizen [id=" + id + ", hoh=" + hoh + super.toString() + "]";
 	}
 
 }

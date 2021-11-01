@@ -1,17 +1,17 @@
 package chungcu.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Employee extends Person {
 	private String position;
 	private String id;
-	private Date appointDay;
+	private LocalDate appointDay;
 
 	public Employee() {
 	}
 
-	public Employee(String position, String id, Date appointDay, String fullName, String address, String sex, Date dob,
-			String license, String birthplace, String nationality) {
+	public Employee(String position, String id, LocalDate appointDay, String fullName, String address, String sex,
+			LocalDate dob, String license, String birthplace, String nationality) {
 		super(fullName, address, sex, dob, license, birthplace, nationality);
 		this.position = position;
 		this.id = id;
@@ -34,12 +34,12 @@ public class Employee extends Person {
 		this.id = id;
 	}
 
-	public Date getAppointDay() {
+	public LocalDate getAppointDay() {
 		return appointDay;
 	}
 
-	public void setAppointDay(Date appointDay) {
-		this.appointDay = appointDay;
+	public void setAppointDay(int d, int m, int y) {
+		this.appointDay = LocalDate.of(y, m, d);
 	}
 
 }
